@@ -67,15 +67,6 @@ class Authenticator(dns_common.DNSAuthenticator):
 
 class ncProvider(namecheap.Provider):
     def authenticate(self):
-        try:
-            logger.debug('self.options[domain]: {0}'.format(self.options['domain']))
-        except Exception as e:
-            logger.warn('exception when checking self.options[domain]: {0}'.format(e))
-        try:
-            logger.debug('self.domain: {0}'.format(self.domain))
-        except Exception as e:
-            logger.warn('exception when checking self.domain: {0}'.format(e))
-        self.domain = self.options['domain']
         super(ncProvider, self).authenticate()
 
 class _NamecheapLexiconClient(dns_common_lexicon.LexiconClient):
